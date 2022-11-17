@@ -9,7 +9,7 @@ bool matching(char a, char b){
     
 }
  
-bool matching(string str){
+bool isBalanced(string str){
     stack<char> s;
     for(int i=0; i<str.length();i++){
         if(str[i]=='(' || str[i]=='{' || str[i]=='[')
@@ -34,7 +34,7 @@ bool matching(string str){
 int main()
 {
     string str="({})";
-    if(matching(str)){
+    if(isBalanced(str)){
       cout<<"Balanced";
     }
     else{

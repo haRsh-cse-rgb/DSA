@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stack>
+#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 int priority (char alpha){
@@ -23,24 +25,26 @@ string convert(string infix)
     stack <int>s;
 
    
-    for(int i=0 ; i<=infix.length(); i++)
+    for(int i=infix.length() ; i>=0; i--)
     {
-      
+      if(infix[i]==' '){
+        continue;
+      }
         if(infix[i]>='a' && infix[i]<='z'|| infix[i]>='A'&& infix[i]<='Z')          
         {
             postfix += infix[i];
             
         }
         
-        else if(infix[i]=='(')
+        else if(infix[i]==')')
         {
             s.push(infix[i]);
           
         }
        
-        else if(infix[i]==')')
+        else if(infix[i]=='(')
         {
-            while(s.top()!='('){
+            while(s.top()!=')'){
                 postfix += s.top();
                 s.pop();
             }
@@ -61,15 +65,18 @@ string convert(string infix)
         postfix += s.top();
         s.pop();
     }
+ 
+ reverse(postfix.begin() , postfix.end());
 
-
-    cout << "Postfix is : " << postfix;  
+    cout << "Prefix is is : " << postfix;  
     return postfix;
 }
 
 int main()
 {
-    string infix = "((a+(b*c))-d)"; 
+    string infix = "(A - B/C) * (A/K-L)"; 
+    
+    
     string postfix;
     postfix = convert(infix);
     

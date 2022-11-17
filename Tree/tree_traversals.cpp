@@ -27,15 +27,15 @@ void preOrder(node *root){
     if(root!=NULL)  {
        
     cout<<root->data<<" ";
-    inOrder(root->left);
-    inOrder(root->right);
+    preOrder(root->left);
+    preOrder(root->right);
     }
 }
 void postOrder(node *root){
     if(root!=NULL)  {
        
-    inOrder(root->left);
-    inOrder(root->right);
+    postOrder(root->left);
+    postOrder(root->right);
     cout<<root->data<<" ";
     }
 }
